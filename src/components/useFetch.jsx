@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
-  const [isPending, setIsPending] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const useFetch = (url) => {
           throw Error('could not fetch the data for that resource');
         } 
         const data= await response.json();
-        setIsPending(false);
+        setIsLoading(false);
         setData(data);
         setError(null);
       }
@@ -24,16 +24,16 @@ const useFetch = (url) => {
         if (err.name === 'AbortError') {
           console.log('fetch aborted')
         } else {
-          setIsPending(false);
+          setIsLoading(false);
           setError(err.message);
         }
       }
-    }, 1000);
+    }, 500);
 
     return () => abortCont.abort();
   }, [url])
 
-  return { data, isPending, error };
+  return { data, isLoading, error };
 }
  
 export default useFetch;
