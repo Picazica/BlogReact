@@ -1,16 +1,10 @@
 {
   "blogs": [
     {
-      "title": "ascasv",
-      "body": "sacasv",
+      "title": "Login done",
+      "body": "Login done",
       "author": "Vítor",
-      "id": 1
-    },
-    {
-      "title": "cascavasvdsvsdvdsvdsvdsvdsvsdv",
-      "body": "sdvdsvdsvdsv",
-      "author": "Ana",
-      "id": 2
+      "id": 3
     }
   ]
 }
